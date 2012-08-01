@@ -1,0 +1,18 @@
+#! /usr/bin/python
+# -*- coding: utf-8 -*-
+
+import logging
+import sys
+
+import pyev
+
+from splicy.server import Server
+
+
+logging.basicConfig(level = logging.DEBUG,
+                    format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+backends = [arg.split(':', 1) for arg in sys.argv[1:]]
+server = Server(pyev.Loop(), 'localhost', 7890, backends)
+server.create_socket()
+server.start()
