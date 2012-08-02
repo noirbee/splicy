@@ -10,6 +10,8 @@ pkgpyexec_PYTHON = \
 	pipe_cache.py \
 	server.py
 
+dist_doc_DATA = README.rst
+
 pkgpyexec_LTLIBRARIES = splice.la
 splice_la_CPPFLAGS = ${AM_CPPFLAGS} ${PYTHON_CPPFLAGS}
 splice_la_CFLAGS = ${AM_CFLAGS} -fno-strict-aliasing
